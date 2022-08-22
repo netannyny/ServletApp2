@@ -19,7 +19,6 @@ public class AccountDAO {
 			Class.forName("org.h2.Driver");
 			con = DriverManager.getConnection(
 					"jdbc:h2:tcp://localhost/~/test","sa","pass");
-
 			String sql ="select * from account where id = ? and pass = ?";
 
 			pstmt = con.prepareStatement(sql);

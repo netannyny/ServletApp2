@@ -1,4 +1,4 @@
-package model;
+package servlet;
 
 import java.io.IOException;
 
@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import model.LoginLogic;
 import scopedata.UserData;
 
 @WebServlet("/u_login")
@@ -28,7 +29,7 @@ public class u_login extends HttpServlet {
 
 		String id = request.getParameter("id");
 		String pass = request.getParameter("pass");
-		String name = request.getParameter("pass");
+		String name = request.getParameter("name");
 		HttpSession session = request.getSession();
 		UserData login = new UserData( id , pass ,name);
 		session.setAttribute("login", login );
