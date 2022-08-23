@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import model.LoginLogic;
-import scopedata.UserData;
+import scopedata.UserData2;
 
 @WebServlet("/u_login")
 public class u_login extends HttpServlet {
@@ -29,9 +29,8 @@ public class u_login extends HttpServlet {
 
 		String id = request.getParameter("id");
 		String pass = request.getParameter("pass");
-		String name = request.getParameter("name");
 		HttpSession session = request.getSession();
-		UserData login = new UserData( id , pass ,name);
+		UserData2 login = new UserData2( id , pass);
 		session.setAttribute("login", login );
 
 		LoginLogic bo = new LoginLogic( );

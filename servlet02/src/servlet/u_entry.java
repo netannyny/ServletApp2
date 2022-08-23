@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import model.LoginLogic;
+import model.RegisterLogic;
 import scopedata.UserData;
 
 @WebServlet("/u_entry")
@@ -34,7 +34,7 @@ public class u_entry extends HttpServlet {
 		UserData login = new UserData( id , pass ,name);
 		session.setAttribute("login", login );
 
-		LoginLogic bo = new LoginLogic( );
+		RegisterLogic bo = new RegisterLogic( );
 		boolean r = bo.execute( login );
 		if( r == true ) {
 			path = "WEB-INF/jsp/u_menu.jsp";

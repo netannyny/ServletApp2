@@ -6,11 +6,11 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import scopedata.UserData;
+import scopedata.UserData2;
 
 public class AccountDAO {
-	public UserData findUserCheck( UserData login ) {
-		UserData account;
+	public UserData2 findUserCheck( UserData2 login ) {
+		UserData2 account;
 		Connection con = null;
 		PreparedStatement pstmt;
 		String  id = login.getId();
@@ -29,8 +29,7 @@ public class AccountDAO {
 
 			rs.next();
 
-			String name = rs.getString( "name" );
-			account = new UserData( id , pass , name );
+			account = new UserData2( id , pass );
 
 		}catch( Exception e ) {
 			return null;

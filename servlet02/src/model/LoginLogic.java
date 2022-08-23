@@ -1,12 +1,12 @@
 package model;
 
 import DAO.AccountDAO;
-import scopedata.UserData;
+import scopedata.UserData2;
 
 public class LoginLogic {
-	public boolean execute(UserData login) {
+	public boolean execute(UserData2 login) {
 		AccountDAO dao = new AccountDAO();
-		UserData account = dao.findUserCheck(login);
+		UserData2 account = dao.findUserCheck(login);
 		if(account == null) return false;
 		else                return true;
 	}
