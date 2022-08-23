@@ -19,7 +19,7 @@ public class AccountDAO {
 			Class.forName("org.h2.Driver");
 			con = DriverManager.getConnection(
 					"jdbc:h2:tcp://localhost/~/test","sa","pass");
-			String sql ="select * from account where id = ? and pass = ?";
+			String sql ="select * from account1 where id = ? and pass = ?";
 
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString( 1 , id );
@@ -27,13 +27,18 @@ public class AccountDAO {
 
 			ResultSet rs = pstmt.executeQuery();
 
-			rs.next();
+			boolean  b = rs.next();
+
+			//System.out.println( "|" + pass +"|  |" + rs.getString("pass")+"|");
+
+			if( b == false) {
+				return null;
+			}
 
 			account = new UserData2( id , pass );
-
 		}catch( Exception e ) {
 			return null;
-			}finally {
+		}finally {
 			 try {
 				if( con !=null )		con.close();
 			} catch (SQLException e) {

@@ -15,7 +15,7 @@ public class RegisterDAO {
 			Class.forName("org.h2.Driver");
 			con = DriverManager.getConnection(
 				"jdbc:h2:tcp://localhost/~/test","sa","pass");
-			String sql = "insert into account values(?,?,?)";
+			String sql = "insert into account1 values(?,?,?)";
 			PreparedStatement pstmt = con.prepareStatement(sql);
 			pstmt.setString(1,account.getId());
 			pstmt.setString(2,account.getPass());
